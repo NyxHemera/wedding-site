@@ -1,0 +1,130 @@
+@green: #6ED6AC;
+@purple: #ACB2FF;
+@blue: #97C5FF;
+@dark-blue: #676F87;
+@blue-grey: #D3E2FF;
+@off-white: #F7F7F7;
+
+html {
+	font-size: 12px;
+}
+
+body {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+#content-section, #photo-section {
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+#content-section {
+	width: 40vw;
+	position: absolute;
+	right: 0;
+
+	> div {
+		width: 100%;
+		padding: 2rem 0;
+
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+
+		/* Chain Border */
+		&:not(:last-child) {
+			border-bottom: 2px @blue-grey dashed;
+			box-shadow: inset 0 -1px 0 0 @blue-grey, 0 1px 0 0 @blue-grey;
+		}
+
+		> p {
+			margin: 0 3rem;
+
+			font-size: 1.25rem;
+		}
+	}
+}
+
+#photo-section {
+	width: 60vw;
+	position: fixed;
+
+	background-image: url("../assets/lucca.jpg");
+	background-position: center center;
+	background-size: cover;
+
+	.welcome-message {
+		// display: none;
+
+		position: absolute;
+		bottom: 8rem;
+		left: 5rem;
+
+		font-size: 5rem;
+		font-family: 'Parisienne', cursive;
+		color: @off-white;
+	}
+
+	.countdown {
+		display: none;
+		
+		position: absolute;
+		bottom: 8rem;
+		left: 5rem;
+
+		font-size: 5rem;
+		color: @off-white;
+	}
+}
+
+.section-title {
+	margin-bottom: 1.2rem;
+
+	font-size: 3rem;
+	font-family: 'Parisienne', cursive;
+}
+
+.question, .answer {
+	padding-left: 1rem;
+}
+
+.question {
+	position: relative;
+
+	> b {
+		position: absolute;
+		left: 0;
+	}
+}
+
+/* Components */
+.countdown {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+@media(min-width: 1200px) {
+	#content-section > div > p {
+		margin: 0 7rem;
+	}
+}
+
+@media only screen and (max-device-width : 480px) {
+	#photo-section {
+		display: none;
+	}
+
+	#content-section {
+		width: 100vw;
+
+		> div > p {
+			margin: 0 10rem;
+		}
+	}
+}
